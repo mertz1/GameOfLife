@@ -1,0 +1,13 @@
+﻿@model GridModel 
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4"><a href="https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life">Game Of Life!</a></h1>
+    @*<partial name="~/Views/Grid/Grid.cshtml"/>*@
+    <div id="GridPartial">
+        @await Html.PartialAsync("~/Views/Grid/Grid.cshtml", Model)
+    </div>
+</div>

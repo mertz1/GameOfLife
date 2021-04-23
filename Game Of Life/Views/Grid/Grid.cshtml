@@ -1,0 +1,21 @@
+﻿@model GridModel
+
+
+<div class="grid-container">
+    <div id="game-of-life-grid" rowCount="@Model.Rows" columnCount="@Model.Columns" class="grid" style="grid-template-columns: repeat(25, minmax(10px, 1fr)); grid-template-rows: repeat(25, minmax(10px, 1fr)); aspect-ratio: 1">
+        @{
+            for (int i = 0; i < (Model?.Rows ?? 25); i++)
+            {
+                for (int j = 0; j < (Model?.Columns ?? 25); j++)
+                {
+                    <div class="@Html.Raw(Model.Grid[i][j] == 1 ? "filled-cell" : "cell")" id="@i-@j" value="@Model.Grid[i][j]" onclick="changeGridColor(`${@i}-${@j}`)"></div>
+                }
+            }
+        }
+    </div>
+</div>
+
+<div>
+    <br/>
+    <button class="btn btn-success" type="button" onclick="printGridValues()">Next Turn</button>
+</div>
